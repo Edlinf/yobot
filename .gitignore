@@ -16,3 +16,4 @@ src/client/*.ics
 src/client/*.pid
 src/client/*.spec
 src/client/test.py
+.idea
