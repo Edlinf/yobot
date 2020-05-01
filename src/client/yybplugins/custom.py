@@ -11,10 +11,17 @@ https://github.com/richardchien/python-aiocqhttp
 https://github.com/richardchien/nonebot
 '''
 
-import asyncio
+import asyncio,re,random
 from typing import Any, Dict, Union
-
+# 代码都在src文件夹里 其他的文件夹可能对你有帮助 虽然我都是不看的
+# 当一直read time out的时候 考虑挂个加速器
+# 需要安装这些包
+# file -> setting ->project:yobot -> project interpreter -> +号 搜索包名
+# 这个方法可能会失败 多试几次
+# 或者 D:\Python36\Scripts\pip.exe install ...
+# 安装成功 这里的红色报错消失了 OHHHHHHHHHHHHHHHHHHH
 from aiocqhttp.api import Api
+# 其他的地方动手试一试叭
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from quart import Quart
 
@@ -63,7 +70,7 @@ class Custom:
         '''
 
         # 如果需要使用，请注释掉下面一行
-        return
+        #return
 
         cmd = ctx['raw_message']
         if cmd == '你好':
@@ -76,6 +83,15 @@ class Custom:
             return '世界'
         if cmd == '我的测试':
             pass
-        
+
+        if re.match(r"roll\s*\d+d\d+",cmd):
+            pattern = re.compile(r'\d+')
+            num = pattern.findall(cmd)
+            result = 0
+            for _ in range(int(num[0])):
+                result += random.randint(1, int(num[1]))
+            await self.api.send_private_msg(
+                user_id=123456, message=f'roll:{result}')
+            return
         # 返回布尔值：是否阻止后续插件
         return False

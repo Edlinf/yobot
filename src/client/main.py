@@ -121,3 +121,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\nCtrl-C")
         sys.exit(0)
+    # main函数是程序的入口 和 C语言一样 但是你看下划线红色的地方 说明你没有这个包
