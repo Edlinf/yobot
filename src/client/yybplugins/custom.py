@@ -40,7 +40,7 @@ class Custom:
         # 此时没有running_loop，不要直接使用await或asyncio.creat_task
 
         # 如果需要使用，请注释掉下面一行
-        return
+        #return
 
         self.setting = glo_setting
         self.api = bot_api
@@ -74,6 +74,8 @@ class Custom:
 
             # 返回字符串：发送消息并阻止后续插件
             return '世界'
-
+        if cmd == '我的测试':
+            pass
+        
         # 返回布尔值：是否阻止后续插件
         return False
