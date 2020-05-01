@@ -12,7 +12,7 @@ def myfunc_1(cmd):
         return
 
 if __name__ == '__main__':
-    msg = 'roll 1d10'
+    msg = 'roll2d20'
     msg1 = 'roll3d30'
     msg2 = 'rolld10'
     # 这样测试你的函数 各种情况都要确保正确

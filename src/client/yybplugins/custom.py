@@ -77,7 +77,7 @@ class Custom:
 
             # 调用api发送消息
             await self.api.send_private_msg(
-                user_id=123456, message='收到问好')
+                user_id=ctx['user_id'], message='收到问好')
 
             # 返回字符串：发送消息并阻止后续插件
             return '世界'
@@ -91,7 +91,7 @@ class Custom:
             for _ in range(int(num[0])):
                 result += random.randint(1, int(num[1]))
             await self.api.send_private_msg(
-                user_id=123456, message=f'roll:{result}')
+                user_id=ctx['user_id'], message=f'roll:{result}')
             return
         # 返回布尔值：是否阻止后续插件
         return False
